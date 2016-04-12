@@ -1,0 +1,48 @@
+---
+layout: btc
+title: Campaigns
+permalink: /campaigns/
+---
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<ol class="breadcrumb">
+			  <li><a href="{{ site.baseurl }}/home/">Home</a></li>
+			  <li class="active">{{ page.title }}</li>
+			</ol>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{ page.title }}</h1>
+			<table class="table table-striped" id="candidate-table"  cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Party Affiliation</th>
+						<th>Grassroots</th>
+						<th>Local</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for campaign in site.data.campaigns %}
+					<tr>
+						<td>{{ campaign.name }}</td>
+						<td>{{ campaign.party }}</td>
+						<td>{{ campaign.grassroots }}</td>
+						<td>{{ campaign.local }}</td>
+						<td>{{ campaign.total }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$('#candidate-table').DataTable();
+	});
+</script>
+
